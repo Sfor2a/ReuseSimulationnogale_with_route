@@ -410,9 +410,9 @@ public class Simulator extends HouseElements {
 				if ( Target.getHAList().size() != 0 ) { //家電を所持している場合にのみ実行
 					for ( int j = 0; j < Target.getHAList().size(); j++ ) {
 						int Count = Target.getHAList().get(j).getUseTernCount();
-						if ( Count >= 5 ) { //条件2：nターム以上つかったら飽きる　今は5
+						if ( Count >= 1 ) { //条件2：nターム以上つかったら飽きる　今は5　毎ターン売り買いするよ　しかも売買100% つまりICPE用
 							int ran = rnd.nextInt(100); //0～99までのうち１つを生成
-							if ( ran > 0 && ran < 49 ) { //条件2続き:n%の確率でターゲットを売りたいと思う家に指定 現在50%
+							if ( ran > 0 && ran < 100 ) { //条件2続き:n%の確率でターゲットを売りたいと思う家に指定 現在50%
 								if ( SellHouse.size() == 0 ) SellHouse.add(Target); //BuyHouseが空なら追加
 								else { //そうでなければ
 									if ( SellHouse.indexOf ( Target ) == -1 ) SellHouse.add(Target); //すでにターゲットが追加されていない場合に限り追加
@@ -433,9 +433,9 @@ public class Simulator extends HouseElements {
 				else {
 					for ( int j = 0; j < Target.getHAList().size(); j++ ) {
 						int Count = Target.getHAList().get(j).getUseTernCount();
-						if ( Count >= 5 ) { //条件2：nターム以上つかったら飽きる　今は5
-							int ran = rnd.nextInt(100); //0～99までのうち１つを生成
-							if ( ran > 0 && ran < 49 ) { //条件2続き:n%の確率でターゲットをかいたいと思う家に指定 現在50%
+						if ( Count >= 1 ) { //条件2：nターム以上つかったら飽きる　今は5
+							int ran = rnd.nextInt(100); //0～99までのうち１つを生成 ICPE用
+							if ( ran > 0 && ran < 100 ) { //条件2続き:n%の確率でターゲットをかいたいと思う家に指定 現在50%
 								if ( BuyHouse.size() == 0 ) {
 									BuyHouse.add(Target); //BuyHouseが空なら追加
 								}
